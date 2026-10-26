@@ -14,9 +14,9 @@ A graduation project, Faculty of Computers and Information, Zagazig University.
 | 2 | **Disease Information** | Symptoms, causes, conditions, prevention and treatment steps, and a comparison with look-alike diseases. |
 | 3 | **Diagnosis History** | Every diagnosis is saved with its image, result and date, and can be reopened later. |
 
-Supporting: authentication, user profile, Arabic / English UI.
+Supporting: authentication, user profile with farm and fields (each farmer keeps their diagnoses across the whole year), Arabic / English UI.
 
-> Out of scope: weather-based risk forecasting. "Prediction" in this project means the model's prediction of the disease from the image.
+> Out of scope: weather-based risk forecasting. "Prediction" in this project means the model's prediction of the disease from the image. The weather alerts shown on the Profile screen of the design are not part of the MVP.
 
 ## Architecture
 
@@ -43,7 +43,7 @@ AI_AGRI/
 │   ├── models/ (checkpoints, onnx)  experiments/  reports/  tests/
 ├── backend/            # .NET Web API (layered)
 │   ├── src/ (Api, Application, Domain, Infrastructure)
-│   └── tests/  docker/  scripts/
+│   └── tests/  scripts/  uploads/
 ├── mobile/             # Flutter mobile app
 │   ├── lib/ (core, features, l10n)  assets/  test/
 ├── web/                # Flutter website (same structure as mobile)
@@ -81,7 +81,8 @@ Brand: Forest Canopy `#064E36`, Agricultural Growth `#087B55`, Plus Jakarta Sans
 | ML | Python, PyTorch or TensorFlow, ONNX |
 | Backend | .NET, ASP.NET Core Web API, ONNX Runtime, Entity Framework Core |
 | Mobile and Web | Flutter (two projects) |
-| DevOps | Docker, GitHub |
+| Database | PostgreSQL (local) |
+| Tools | Git, GitHub |
 
 ## Team
 

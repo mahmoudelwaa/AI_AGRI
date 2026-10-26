@@ -9,15 +9,15 @@ backend/
 ├── src/
 │   ├── AgriAI.Api/             # controllers, middleware, Program.cs, Swagger
 │   ├── AgriAI.Application/     # services, DTOs, interfaces (the use cases)
-│   ├── AgriAI.Domain/          # entities and enums: User, Crop, Disease, Diagnosis
+│   ├── AgriAI.Domain/          # entities and enums: User, Farm, Field, Crop, Disease, Diagnosis
 │   └── AgriAI.Infrastructure/
-│       ├── Persistence/        # DbContext, EF Core migrations
+│       ├── Persistence/        # DbContext, EF Core migrations, Seed/ (crops and diseases data)
 │       ├── Repositories/
 │       ├── Auth/               # JWT, password hashing
 │       ├── Storage/            # image storage
 │       └── MachineLearning/    # ONNX Runtime classifier, preprocessing, Models/ (the .onnx file)
 ├── tests/AgriAI.Tests/
-├── docker/                     # Dockerfile, docker-compose
+├── uploads/                    # uploaded images on the local machine (not in git)
 └── scripts/
 ```
 
@@ -25,9 +25,9 @@ backend/
 
 | Role | Works in |
 |------|----------|
-| Backend 1 | `Auth/`, `Persistence/`, `Domain/` (users, schema, migrations) |
-| Backend 2 | disease and diagnosis-history controllers, services and repositories, Swagger |
-| Backend 3 | `MachineLearning/`, `Storage/`, upload endpoint, `docker/`, deployment |
+| Backend 1 | `Auth/`, `Persistence/`, `Domain/` (users, farms and fields, schema, migrations) |
+| Backend 2 | disease and diagnosis-history controllers, services and repositories (history filters), `Persistence/Seed/`, Swagger |
+| Backend 3 | `MachineLearning/`, `Storage/`, upload endpoint, the demo setup on one laptop |
 
 ## Creating the projects
 
@@ -46,3 +46,17 @@ dotnet sln add src/*/*.csproj tests/*/*.csproj
 Dependencies: Api, Application, Infrastructure; Application, Domain; Infrastructure, Application and Domain. Domain depends on nothing.
 
 The preprocessing in `MachineLearning/` must follow `docs/MODEL_SPEC.md` exactly.
+
+## Database (local PostgreSQL)
+
+No Docker. Each backend developer installs PostgreSQL on their own machine, so everyone has a clean private database.
+
+1. Install PostgreSQL from the official site and remember the `postgres` password.
+2. Copy `src/AgriAI.Api/appsettings.Example.json` to `src/AgriAI.Api/appsettings.Development.json` and put your own password. This file is in `.gitignore`, never commit it.
+3. Build the tables and load the crops and diseases data:
+
+```bash
+dotnet ef database update --project src/AgriAI.Infrastructure --startup-project src/AgriAI.Api
+```
+
+Migrations and the seed data are in git, so everyone gets the same schema. Changes to the schema go through Backend 1 and the repository owner. Images are saved in `uploads/`, and the database stores only their path.

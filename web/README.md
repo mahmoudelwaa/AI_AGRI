@@ -27,6 +27,7 @@ web/
 │   │   ├── diagnosis/      # result screen, top 3 predictions
 │   │   ├── disease_info/   # disease details, comparison and prevention
 │   │   ├── history/        # past diagnoses, inspection details
+│   │   ├── farm/           # farm info and fields
 │   │   └── profile/
 │   └── l10n/               # translation files (arb)
 ├── assets/                 # images, icons, fonts

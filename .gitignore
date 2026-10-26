@@ -37,6 +37,10 @@ obj/
 TestResults/
 appsettings.Development.json
 
+# Uploaded user images (keep the folder, ignore the files)
+/backend/uploads/*
+!/backend/uploads/.gitkeep
+
 # Flutter (mobile/ and web/)
 .dart_tool/
 .pub-cache/

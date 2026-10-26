@@ -26,6 +26,7 @@ mobile/
 │   │   ├── diagnosis/      # result screen, top 3 predictions
 │   │   ├── disease_info/   # disease details, comparison and prevention
 │   │   ├── history/        # past diagnoses, inspection details
+│   │   ├── farm/           # farm info and fields
 │   │   └── profile/
 │   └── l10n/               # translation files (arb)
 ├── assets/                 # images, icons, fonts
@@ -47,7 +48,7 @@ flutter create . --project-name agriai_mobile --org com.agriai --platforms andro
 | Role | Features |
 |------|----------|
 | Flutter 1 | `home`, `scan`, `diagnosis`, camera |
-| Flutter 2 | `disease_info`, `history`, `profile`, `auth` |
+| Flutter 2 | `disease_info`, `history`, `farm`, `profile`, `auth` |
 | Both | `core/` (theme, network, shared widgets) |
 
 Screens from the design: home, scan, diagnosis result, disease information, comparison and prevention, diagnosis history, inspection details, profile.

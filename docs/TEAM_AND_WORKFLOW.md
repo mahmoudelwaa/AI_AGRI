@@ -6,11 +6,11 @@
 |------|---------|------------------|
 | **AI 1** (lead) | | Model experiments and selection, evaluation, review of all pull requests |
 | **AI 2** | | Data cleaning and splits, training for the remaining crops, real-field test set |
-| **Backend 1** | | Authentication, users, database schema and migrations |
-| **Backend 2** | | Disease information and diagnosis history APIs, Swagger docs |
-| **Backend 3** | | ONNX Runtime integration, image processing, upload endpoint, Docker and deployment |
+| **Backend 1** | | Authentication, users, farms and fields, database schema and migrations |
+| **Backend 2** | | Disease information and diagnosis history APIs (with filters), seed data, Swagger docs |
+| **Backend 3** | | ONNX Runtime integration, image processing, upload endpoint, demo setup on one laptop |
 | **Flutter 1** | | Mobile app: camera, scan and result screens |
-| **Flutter 2** | | Disease info, history, profile, auth screens in the mobile app, and the website (`web/`) with its responsive layout |
+| **Flutter 2** | | Disease info, history, farm, profile, auth screens in the mobile app, and the website (`web/`) with its responsive layout |
 
 Shared: AI 1 and AI 2 export ONNX together; Flutter 1 and 2 follow the same API contract and design system (`design/DESIGN.md`) across `mobile/` and `web/`.
 
