@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="ar" dir="rtl" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriAI - Home Screen</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cairo and Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#064E36',
+            forestDark: '#043826',
+            agriGreen: '#087B55',
+            agriLight: '#0FA974',
+            mintBg: '#EAF6F0',
+            mintLight: '#F3FAF6',
+            paleCream: '#FAF8F5',
+            darkText: '#18241D',
+            subText: '#5A6E63',
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #F0F4F2;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+    .ltr-text {
+      direction: ltr;
+      display: inline-block;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hero-mask {
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-slate-200 p-0 sm:p-4">
+
+  <!-- Mobile Screen Shell Container (iPhone Form Factor: ~390px x 844px) -->
+  <div class="w-full max-w-[393px] h-[852px] bg-white rounded-[44px] shadow-2xl overflow-hidden relative flex flex-col border-[7px] border-slate-900 select-none">
+    
+    <!-- Status Bar (iOS Style) -->
+    <div class="w-full h-11 px-6 pt-3 flex justify-between items-center z-30 absolute top-0 left-0 text-slate-800">
+      <span class="text-xs font-semibold ltr-text tracking-tight font-sans text-slate-900">9:41</span>
+      
+      <!-- Dynamic Island / Speaker Pill indicator -->
+      <div class="w-24 h-4 bg-slate-900/90 rounded-full mx-auto"></div>
+      
+      <div class="flex items-center gap-1.5 ltr-text text-slate-900">
+        <!-- Cellular signal icon -->
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.25c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l.65-.65C7.24 19.38 9.49 20 12 20s4.76-.62 6.3-1.69l.65.65c.1.1.23.15.35.15s.26-.05.35-.15c.2-.2.2-.51 0-.71l-.62-.64C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path></svg>
+        <!-- Wifi icon -->
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.55 0 6.78 1.45 9.15 3.8L12 18.57 2.85 11.3C5.22 8.95 8.45 7.5 12 7.5z"></path></svg>
+        <!-- Battery icon -->
+        <div class="w-5 h-2.5 border border-slate-900 rounded-sm p-[1px] flex items-center">
+          <div class="h-full w-3/4 bg-slate-900 rounded-[1px]"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable Content Area -->
+    <div class="flex-1 overflow-y-auto hide-scrollbar pb-24 relative bg-[#F7FAF8]">
+      
+      <!-- Top Hero Section with Agricultural Landscape -->
+      <div class="relative w-full h-[225px] overflow-hidden bg-emerald-950">
+        <!-- Landscape Photo Background -->
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8G5WgHr64ycSrH__cDejg-VdUbqMjGAh5odEaCGud2hI6b5_byRqWogDWqKVAiKtpFAseYoMrjC98bu32kM8fbaxiaANG0Kz1Z5lJrXAAk3X95puCtHJwN6ccFK_HWwqSyID2uDYXYZZDb8PhaHAbx22jA7XP2jVWoEPk1qigmmUtb_u8bwffhgTNO-fLEiVmf9E3jQU7ehuInsXjWgLg14lxrUUnQQrnJ_ELuPjRZUaRt8s4KEE" alt="حقول زراعية خضراء" class="w-full h-full object-cover object-center hero-mask opacity-90 scale-105">
+        
+        <!-- Gradient Overlay for Contrast & Softness -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-emerald-950/25 to-[#F7FAF8]"></div>
+
+        <!-- Notification Bell Icon (Top Left in RTL) -->
+        <div class="absolute top-12 left-5 z-20">
+          <button class="w-9 h-9 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-forest shadow-sm active:scale-95 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Center Brand Emblem & Title -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center pt-8 z-10 px-4 text-center">
+          <!-- Logo Badge -->
+          <div class="w-14 h-14 bg-white/95 rounded-2xl shadow-lg flex items-center justify-center p-1.5 border border-emerald-100 mb-2 transform hover:scale-105 transition">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh57WmZLyhZ2NeGjv6HKfmqu3HGF_zTNdlZa03Y4Y-xpjt3iHP4KWXSHIzz8NDnDUwtB0axBrnpVp84Yvcq7H7fNG3CSNLXRgWonueWwE_JccTh1EHO26raSREaygH3mq7j6iZTU-3sgh00ODVA2RU_v1C_ozj8v2ekBqCcHTiam0fB8WiBdJA0h02z2-QxLxWXDYw81g778VBulcyuvkuxy5e5tthRZZ1QJJldUSaAoL667209ss" alt="AgriAI Logo" class="w-full h-full object-contain">
+          </div>
+
+          <!-- App Name -->
+          <h1 class="text-2xl font-black tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] flex items-center gap-1 font-sans">
+            Agri<span class="text-emerald-300">AI</span>
+          </h1>
+
+          <!-- Taglines: English & Arabic as requested -->
+          <p class="text-[12px] font-bold text-emerald-100 tracking-wide ltr-text font-sans drop-shadow-sm mt-0.5">
+            Healthy Crops, Brighter Future
+          </p>
+          <p class="text-[12px] font-semibold text-white/90 drop-shadow-sm mt-0.5">
+            محاصيل سليمة.. مستقبل أفضل
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Body Content -->
+      <div class="px-4 -mt-3 relative z-20 space-y-4">
+
+        <!-- Card: اختر المحصول (Select Crop) -->
+        <div class="bg-white rounded-3xl p-4 shadow-[0_4px_20px_rgba(6,78,54,0.06)] border border-emerald-50/80">
+          <div class="flex items-center justify-between mb-3 px-1">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-5 bg-agriGreen rounded-full inline-block"></span>
+              <h2 class="text-base font-bold text-darkText">اختر المحصول</h2>
+            </div>
+            <span class="text-xs text-agriGreen font-medium hover:underline cursor-pointer">عرض الكل</span>
+          </div>
+
+          <!-- 3 Horizontal Crop Cards: Wheat, Rice, Tomato -->
+          <div class="grid grid-cols-3 gap-2.5">
+            
+            <!-- Crop 1: Wheat (القمح) - Selected state style -->
+            <div class="group bg-gradient-to-b from-[#F3FAF6] to-white rounded-2xl p-2 border-2 border-agriGreen shadow-sm relative flex flex-col items-center cursor-pointer transition transform active:scale-95">
+              <span class="absolute top-1.5 right-1.5 w-4 h-4 bg-agriGreen rounded-full flex items-center justify-center text-white">
+                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              </span>
+              <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 shadow-inner bg-emerald-100">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCo6xQWyunlj2A8-vLFJiFfgg46bvsxBxhgTXlHYvEWJE5diN3aWj_HKBhKfq7xcQIWpdFROnA96MbsZecEFgCaDN8HQbk2E-dPWFUVj84d-p8xHcWzOy0Ntbdi9vFDI4MT3vWaSx-dW11qY1JBU2XAUEtQWiLm3slF0cbhTG3lM3G9f5Ps7r63qixH0IyRXolpEl4gd8v0Fi3X120k7QWPe2ovhnHjE3zUddoqh2NqiVYjdzjIo" alt="القمح Wheat" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+              </div>
+              <span class="text-xs font-bold text-darkText">القمح</span>
+              <span class="text-[10px] text-subText font-sans ltr-text font-medium">Wheat</span>
+            </div>
+
+            <!-- Crop 2: Rice (الأرز) -->
+            <div class="group bg-white rounded-2xl p-2 border border-slate-100 hover:border-emerald-200 shadow-sm flex flex-col items-center cursor-pointer transition transform active:scale-95">
+              <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 shadow-inner bg-emerald-50">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAve_WwuwkLewoFBuFW34FPc6h9mZDvMg66kR6hkMKlfbn7D_t7wGiJQ3Bw-wYUv2i2WhvFApVulRzDXRGQ5sz0CL9dCFHalMtArI4YpFEYe3eTcDb0PDS3AIk4_DXOYPQUMWO6QS-TmGCHdhCG82DKcVjSZ86Vi0B92RILUHVvbcJIuEYboX1Y93AgJHp3DWjpy2bJsxlQe_n5ZpsDTRkgxLdsQc7Uv5aKRh3G1I92vBd9g9z4ddw" alt="الأرز Rice" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+              </div>
+              <span class="text-xs font-bold text-darkText">الأرز</span>
+              <span class="text-[10px] text-subText font-sans ltr-text font-medium">Rice</span>
+            </div>
+
+            <!-- Crop 3: Tomato (الطماطم) -->
+            <div class="group bg-white rounded-2xl p-2 border border-slate-100 hover:border-emerald-200 shadow-sm flex flex-col items-center cursor-pointer transition transform active:scale-95">
+              <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 shadow-inner bg-emerald-50">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuANPmLPlgJpDRnZy7KDCwRZK8NE1vXiAIztAr9HMMvsWmMtkWo9o8iUe0lQodsazuJtV-k2cJzzEtXquehpkngJ33OReNbKNdF3TH-TLCYVUGWwomu_wz2kHpmbRATr8UheVZeCVvbaCZeh-xruXkqeFsla0xNmg7sm6zxPIqT6RLeERn_ojplRLtgrmpGWEr1JUmGuH1Rfi39s_w1zpp35Rt8Eq5eNGDL7tbCvCf49hjQ15pSjjBQ" alt="الطماطم Tomato" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+              </div>
+              <span class="text-xs font-bold text-darkText">الطماطم</span>
+              <span class="text-[10px] text-subText font-sans ltr-text font-medium">Tomato</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Prominent Scan CTA Button Section (افحص محصولك) -->
+        <div class="bg-gradient-to-br from-forest via-[#07593D] to-forestDark rounded-3xl p-5 text-white shadow-[0_8px_24px_rgba(6,78,54,0.28)] relative overflow-hidden">
+          <!-- Subtle decorative background rings -->
+          <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/5 pointer-events-none"></div>
+          <div class="absolute right-12 -top-10 w-24 h-24 rounded-full bg-emerald-400/10 pointer-events-none"></div>
+
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 border border-emerald-400/20">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <span class="text-xs font-bold text-emerald-200 tracking-wide">تشخيص فوري مدعوم بالذكاء الاصطناعي</span>
+            </div>
+            
+          </div>
+
+          <p class="text-xs text-emerald-100/90 leading-relaxed mb-4">
+            التقط صورة واضحة لورقة النبات المصابة أو حمّلها من المعرض للحصول على تحليل فوري وعلاج موثوق.
+          </p>
+
+          <!-- Primary Button Action -->
+          <button class="w-full py-3.5 px-4 bg-white text-forest hover:bg-emerald-50 font-extrabold text-sm rounded-2xl shadow-lg flex items-center justify-center gap-2.5 transition active:scale-[0.98]">
+            <!-- Camera Icon -->
+            <div class="w-7 h-7 rounded-xl bg-forest text-white flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <span class="">افحص محصولك الآن</span>
+          </button>
+        </div>
+
+        <!-- Two Feature Cards: خطر الإصابة & سجل الفحوص -->
+        <div class="bg-white rounded-2xl p-4 border border-emerald-50 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition flex items-center justify-between cursor-pointer"><div class="flex items-center gap-3.5"><div class="w-11 h-11 rounded-2xl bg-emerald-50 text-agriGreen flex items-center justify-center shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><div><div class="flex items-center gap-2"><h3 class="text-xs font-bold text-darkText">سجل الفحوص</h3><span class="text-[10px] font-bold text-agriGreen bg-emerald-50 px-2 py-0.5 rounded-full">12 فحص</span></div><p class="text-[10.5px] text-subText mt-0.5">التقارير السابقة والنتائج</p></div></div><div class="flex items-center gap-1 text-[11px] text-agriGreen font-semibold"><span class="">عرض السجل</span><svg class="w-3.5 h-3.5 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></div></div>
+
+        <!-- Quick Advisory / Tips Micro-banner -->
+        
+
+      </div>
+    </div>
+
+    <!-- Fixed Bottom 4-Item Navigation Bar (Home, History, Info, Profile) -->
+    <div class="absolute bottom-0 left-0 right-0 h-[72px] bg-white/95 backdrop-blur-md border-t border-slate-100 px-6 flex items-center justify-between z-30">
+      
+      <!-- Nav Item 1: Home (الرئيسية) - Active -->
+      <button class="flex flex-col items-center gap-1 text-agriGreen flex-1">
+        <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+          </svg>
+        </div>
+        <span class="text-[10px] font-bold">الرئيسية</span>
+      </button>
+
+      <!-- Nav Item 2: History (السجل) -->
+      <button class="flex flex-col items-center gap-1 text-slate-400 hover:text-agriGreen transition flex-1">
+        <div class="w-8 h-8 flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+          </svg>
+        </div>
+        <span class="text-[10px] font-medium">السجل</span>
+      </button>
+
+      <!-- Nav Item 3: Info / Library (دليل الأمراض) -->
+      <button class="flex flex-col items-center gap-1 text-slate-400 hover:text-agriGreen transition flex-1">
+        <div class="w-8 h-8 flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <span class="text-[10px] font-medium">الإرشادات</span>
+      </button>
+
+      <!-- Nav Item 4: Profile (حسابي) -->
+      <button class="flex flex-col items-center gap-1 text-slate-400 hover:text-agriGreen transition flex-1">
+        <div class="w-8 h-8 flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+        </div>
+        <span class="text-[10px] font-medium">حسابي</span>
+      </button>
+
+    </div>
+
+    <!-- Home Indicator bar (iOS) -->
+    <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-900/30 rounded-full z-40 pointer-events-none"></div>
+
+  </div>
+
+
+
+
+
+</body></html>

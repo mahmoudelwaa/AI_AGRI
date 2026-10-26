@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriAI Screen 3: AI Plant Disease Diagnosis Results</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#064E36',
+              dark: '#033524',
+              light: '#0A694A'
+            },
+            agri: '#087B55',
+            mint: {
+              50: '#F4FAF7',
+              100: '#EAF6F0',
+              200: '#D5EDDF',
+              300: '#B2DFC6',
+            },
+            amberCustom: '#D97706',
+          },
+          fontFamily: {
+            arabic: ['Tajawal', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #0b1f17;
+    }
+    .font-en {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+<meta content="mobile_stack" name="shell-type"/></head>
+<body class="min-h-screen flex items-center justify-center p-0 md:p-6 text-slate-800">
+<!-- iPhone Container Frame matching Screen 1 & Screen 2 -->
+<div class="w-full max-w-[410px] h-[884px] bg-[#f9fbfa] rounded-[48px] shadow-2xl overflow-hidden flex flex-col relative border-[9px] border-[#1e2923]">
+<!-- Status Bar (iOS) -->
+<div class="w-full pt-3 px-7 pb-2 flex justify-between items-center text-slate-800 text-xs font-semibold z-30 select-none">
+<span class="font-en text-sm tracking-tight">9:41</span>
+<!-- Dynamic Island notch pill -->
+<div class="w-24 h-5 bg-black rounded-full flex items-center justify-end px-2 gap-1.5 shadow-inner">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#18181b]"></span>
+</div>
+<div class="flex items-center gap-1.5 text-xs">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.25c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l.74-.74C8.04 19.9 9.94 20.5 12 20.5s3.96-.6 5.5-1.58l.74.74c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-.62-.64C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 2.5c3.59 0 6.5 2.91 6.5 6.5 0 1.54-.53 2.95-1.42 4.07l-9.15-9.15C9.05 6.03 10.46 5.5 12 5.5zm-5.08 2.43 9.15 9.15c-1.12.89-2.53 1.42-4.07 1.42-3.59 0-6.5-2.91-6.5-6.5 0-1.54.53-2.95 1.42-4.07z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.3c3.78 0 7.26 1.4 9.9 3.73L12 18.3 2.1 11.03C4.74 8.7 8.22 7.3 12 7.3z"></path></svg>
+<div class="w-5 h-2.5 border border-slate-700 rounded-sm p-0.5 flex items-center">
+<div class="h-full w-full bg-slate-800 rounded-2xs"></div>
+</div>
+</div>
+</div>
+<!-- Dark Green Top Header Bar -->
+<header class="bg-forest text-white px-5 py-3.5 flex items-center justify-between shadow-md relative z-20">
+<!-- Back Button -->
+<button aria-label="الرجوع" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 flex items-center justify-center transition-all">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<!-- In RTL, forward arrow points left for back action -->
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Center Title -->
+<div class="text-center">
+<h1 class="text-lg font-bold tracking-tight text-white">نتيجة التشخيص</h1>
+<span class="text-[11px] text-mint-200/90 font-medium flex items-center justify-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          اكتمل الفحص بواسطة الذكاء الاصطناعي
+        </span>
+</div>
+<!-- Action: Share or More -->
+<button aria-label="خيارات" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 flex items-center justify-center transition-all">
+<svg class="w-4.5 h-4.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-4 py-4 space-y-3.5 pb-24"><div class="flex flex-col w-full text-on-surface">
+<!-- Hero Visual Leaf Image -->
+<div class="relative w-full h-48 -mt-4 overflow-hidden shadow-sm bg-surface-container-high">
+<img alt="أعراض صدأ القمح الأصفر على الورقة والسنبلة" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE-WIAZlt2Tsa4pxr89usGjyVap7I7K2za3OmoOMQQZS_LEB1t_VtFtEF60jZh_oIC1OD-tnEQA_JPb28mske1m3VhMOQRNyx2GU9oGpTYMx4T3fijd7uNW_8GJ6Sg9EXQaFrOT5-yMVPNFwpKmdsG4k1xEqGLeFemFyMUcYQVdb7oBqTQyyHnlC3KXFs7cDue0rhe_0FcK8oCjieWnanR7EXLBGrSYgAShRSv8Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-2.5 right-3 left-3 flex items-center justify-between text-on-primary">
+<span class="font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
+        عينة فحص موثقة مخبرياً
+      </span>
+<span class="font-label-sm text-label-sm bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-lg text-surface-bright">
+        Puccinia striiformis
+      </span>
+</div>
+</div>
+<!-- Disease Header & Classification Badges -->
+<section class="px-1 pt-3 pb-2 flex flex-col gap-2">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">
+          صدأ الأوراق الأصفر
+        </h2>
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+          شديد الخطورة
+        </span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-0.5" dir="ltr">
+        Yellow Rust (Stripe Rust) — Puccinia striiformis
+      </p>
+</div>
+<!-- Category Badges Row -->
+<div class="flex items-center gap-2 pt-0.5">
+<div class="bg-secondary-container/60 text-primary px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">grass</span>
+<span class="font-label-md text-label-md font-bold">محصول القمح</span>
+</div>
+<div class="bg-surface-container-high text-on-surface-variant px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">coronavirus</span>
+<span class="font-label-md text-label-md font-bold">مُسبب فطري</span>
+</div>
+<div class="bg-surface-container-high text-on-surface-variant px-2.5 py-1.5 rounded-xl flex items-center gap-1 shadow-sm mr-auto">
+<span class="material-symbols-outlined text-[15px] text-outline">timer</span>
+<span class="font-label-sm text-label-sm font-semibold">سريع الانتشار</span>
+</div>
+</div>
+</section>
+<!-- Segmented Navigation Tab Pill Control -->
+<nav class="bg-surface-container p-1 rounded-2xl flex items-center gap-1 my-2" role="tablist">
+<button aria-selected="true" class="flex-1 py-2 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md font-bold text-center shadow-sm transition-all" role="tab">
+      الأعراض
+    </button>
+<button aria-selected="false" class="flex-1 py-2 rounded-xl text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold text-center transition-all" role="tab">
+      الأسباب والظروف
+    </button>
+<button aria-selected="false" class="flex-1 py-2 rounded-xl text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold text-center transition-all" role="tab">
+      فروق التشخيص
+    </button>
+</nav>
+<!-- Key Symptoms Section -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-5 bg-secondary rounded-full"></div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">
+        الأعراض الحقلية المميزة
+      </h3>
+</div>
+<ul class="space-y-2.5 text-on-surface">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm text-body-sm leading-relaxed">
+          ظهور بثور دائرية إلى بيضاوية بلون أصفر أو برتقالي فاقع على النصل العلوي للأوراق.
+        </span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm text-body-sm leading-relaxed">
+          انتظام البثور الفطرية في خطوط أو أشرطة طولية متوازية تمتد بوضوح بمحاذاة عروق الورقة.
+        </span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm text-body-sm leading-relaxed">
+          تطاير غبار بوغي برتقالي ناعم عند ملامسة الأوراق أو هبوب الرياح في أطوار العدوى المتقدمة.
+        </span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm text-body-sm leading-relaxed">
+          جفاف مبكر وموت أنسجة الورقة الحاملة للسنبلة مما يؤدي لضمور الحبوب ونقص حاد في المحصول.
+        </span>
+</li>
+</ul>
+</section>
+<!-- Horizontal Field Photography Gallery -->
+<section class="flex flex-col gap-2.5 pt-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">photo_library</span>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">
+          معرض الصور الميدانية
+        </h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium bg-surface-container px-2 py-0.5 rounded-full">
+        3 لقطات مجهرية
+      </span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Photo 1 -->
+<div class="flex flex-col gap-1.5 bg-surface-container-lowest p-1.5 rounded-xl shadow-sm">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img alt="خطوط طولية مبكرة على ورقة القمح" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE-WIAZlt2Tsa4pxr89usGjyVap7I7K2za3OmoOMQQZS_LEB1t_VtFtEF60jZh_oIC1OD-tnEQA_JPb28mske1m3VhMOQRNyx2GU9oGpTYMx4T3fijd7uNW_8GJ6Sg9EXQaFrOT5-yMVPNFwpKmdsG4k1xEqGLeFemFyMUcYQVdb7oBqTQyyHnlC3KXFs7cDue0rhe_0FcK8oCjieWnanR7EXLBGrSYgAShRSv8Q"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate">
+          بثور شريطية مبكرة
+        </p>
+</div>
+<!-- Photo 2 -->
+<div class="flex flex-col gap-1.5 bg-surface-container-lowest p-1.5 rounded-xl shadow-sm">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" data-alt="Microscopic extreme macro view of Puccinia striiformis yellow stripe rust spores bursting on wheat leaf epidermis, highly detailed agronomy laboratory microscopy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKavqVmWWRJ6i7GdTuPW6mkZmhRQ7uR5ddrkp6UDcie_v2S65JrrxsLCjNOdm2SrmPSMxkmGL4F6_RkzHoNy_q1miB56EeeqH9cA3mwPLBhFwLfGrp8f79XaFg_mZWbhig0fpld5rftAuTlxeM_UU5-Q9EjGft43_5ClTgChKp9crZ8fq7MwfTTHO69DZ2a3u4EJ1khcykuqEkA-BzC6gnOst9f9J8O0OX_BPSBA"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate">
+          تجمع الأبواغ الفطرية
+        </p>
+</div>
+<!-- Photo 3 -->
+<div class="flex flex-col gap-1.5 bg-surface-container-lowest p-1.5 rounded-xl shadow-sm">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" data-alt="Wide field perspective showing wheat crop flag leaf and emerging ear infected with intense yellow rust fungus in agricultural farm field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4vXN7BCDrYKNmSH8uN8GTd_O67tJBweFjLudKdAGyjo0IslaG-WWi4BPkLveMzURqhKw4jGUttg7WlLzo_8BIXRSimyqlTUd-6rTYDRmZrVUw3qZR22cyKf3o70_UilxSlI6NBJvs3WTKJ1OICwM3m5JzqI2kcRTXJX1eV_NE8DLal33gDwTnRel8jV4rXQBaUB1Yr7aSXBg6s_1PwWegpqX40N7nMFMW13cx8w"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate">
+          إصابة ورقة الراية
+        </p>
+</div>
+</div>
+</section>
+<!-- Etiology & Environmental Conditions -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex flex-col gap-3 mt-1">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-5 bg-primary rounded-full"></div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">
+        أسباب المرض والظروف الحيوية
+      </h3>
+</div>
+<div class="grid grid-cols-1 gap-2.5">
+<!-- Item 1: Pathogen -->
+<div class="bg-surface-container-low p-3 rounded-xl flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">المسبب الميكروبيولوجي</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+            فطر <span class="font-semibold text-primary" dir="ltr">Puccinia striiformis f. sp. tritici</span> وهو طفيلي إجباري شديد التخصص بأنسجة القمح.
+          </p>
+</div>
+</div>
+<!-- Item 2: Temperature -->
+<div class="bg-surface-container-low p-3 rounded-xl flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">thermostat</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">الحرارة المثالية للتطور</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+            يزدهر خلال الأجواء المعتدلة والباردة بين <span class="font-bold text-on-surface">10° إلى 15° مئوية</span>، ويتوقف نموه النشط عند تجاوز 23° مئوية.
+          </p>
+</div>
+</div>
+<!-- Item 3: Humidity -->
+<div class="bg-surface-container-low p-3 rounded-xl flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">الرطوبة والندى الليلي</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+            يلزم وجود غشاء رطب أو ندى مع رطوبة نسبية تزيد عن <span class="font-bold text-on-surface">85%</span> لمدة 3-4 ساعات لإتمام إنبات الأبواغ واختراق الثغور.
+          </p>
+</div>
+</div>
+<!-- Item 4: Wind dispersion -->
+<div class="bg-surface-container-low p-3 rounded-xl flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">air</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">آلية الانتشار الهوائي</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+            تنتقل الجراثيم اليوريدية الخفيفة لعشرات الكيلومترات مع هبات الرياح متسببة في بؤر عدوى سريعة ومفاجئة.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Agronomic Action Recommendation Card -->
+<section class="bg-gradient-to-l from-primary to-primary-container text-on-primary rounded-2xl p-4 shadow-md flex items-center justify-between gap-3 my-1">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed/20 flex items-center justify-center text-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-surface-bright">
+          هل ترغب في البدء بالمكافحة؟
+        </h4>
+<p class="font-label-sm text-label-sm text-on-primary-container">
+          راجع خيارات المبيدات المعتمدة وجدول المعالجة الميدانية
+        </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-fixed text-[20px] shrink-0">arrow_back_ios</span>
+</section>
+</div></main>
+<!-- Bottom Sticky CTA Container -->
+<div class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-100 px-5 pt-3 pb-6 flex flex-col items-center gap-2.5 z-30 shadow-lg">
+<!-- Wide Dark Green Button: "عرض معلومات المرض" with Info Icon -->
+<button class="w-full bg-forest hover:bg-forest-light active:scale-[0.98] text-white py-3.5 px-5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2.5 shadow-md shadow-forest/20 transition-all">
+<!-- Information Icon -->
+<svg class="w-5 h-5 text-mint-200" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="12" x2="12" y1="16" y2="12"></line>
+<line x1="12" x2="12.01" y1="8" y2="8"></line>
+</svg>
+<span>عرض معلومات المرض</span>
+<svg class="w-4 h-4 text-mint-200/70 mr-auto" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Secondary Quick Action: New Scan -->
+<button class="text-xs font-bold text-agri hover:text-forest flex items-center gap-1.5 transition-colors">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>إجراء فحص نبات جديد</span>
+</button>
+<!-- iOS Home Bar Indicator -->
+<div class="w-32 h-1 bg-slate-300 rounded-full mt-1"></div>
+</div>
+</div>
+</body></html>

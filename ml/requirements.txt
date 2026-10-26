@@ -1,0 +1,10 @@
+# Fill in when the training framework is chosen (PyTorch or TensorFlow)
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+pillow
+onnx
+onnxruntime
+jupyter

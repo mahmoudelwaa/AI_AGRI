@@ -1,0 +1,55 @@
+# Python / ML
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+wandb/
+mlruns/
+lightning_logs/
+
+# ML data: keep the folder structure, ignore images and archives
+/ml/data/**/*.jpg
+/ml/data/**/*.jpeg
+/ml/data/**/*.png
+/ml/data/**/*.JPG
+/ml/data/**/*.JPEG
+/ml/data/**/*.PNG
+/ml/data/**/*.webp
+/ml/data/**/*.bmp
+/ml/data/**/*.zip
+/ml/data/**/*.tar
+/ml/data/**/*.gz
+
+# ML weights (exported .onnx files are allowed, see ml/README.md)
+*.pt
+*.pth
+*.h5
+*.ckpt
+/ml/models/checkpoints/*
+!/ml/models/checkpoints/.gitkeep
+
+# .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+TestResults/
+appsettings.Development.json
+
+# Flutter (mobile/ and web/)
+.dart_tool/
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/android/local.properties
+**/ios/Pods/
+*.iml
+
+# General
+.env
+.DS_Store
+.idea/
+.vscode/

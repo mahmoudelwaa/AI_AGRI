@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriAI Screen 3: AI Plant Disease Diagnosis Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#064E36',
+              dark: '#033524',
+              light: '#0A694A'
+            },
+            agri: '#087B55',
+            mint: {
+              50: '#F4FAF7',
+              100: '#EAF6F0',
+              200: '#D5EDDF',
+              300: '#B2DFC6',
+            },
+            amberCustom: '#D97706',
+          },
+          fontFamily: {
+            arabic: ['Tajawal', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #0b1f17;
+    }
+    .font-en {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 md:p-6 text-slate-800">
+  <!-- iPhone Container Frame matching Screen 1 & Screen 2 -->
+  <div class="w-full max-w-[410px] h-[884px] bg-[#f9fbfa] rounded-[48px] shadow-2xl overflow-hidden flex flex-col relative border-[9px] border-[#1e2923]">
+    
+    <!-- Status Bar (iOS) -->
+    <div class="w-full pt-3 px-7 pb-2 flex justify-between items-center text-slate-800 text-xs font-semibold z-30 select-none">
+      <span class="font-en text-sm tracking-tight">9:41</span>
+      <!-- Dynamic Island notch pill -->
+      <div class="w-24 h-5 bg-black rounded-full flex items-center justify-end px-2 gap-1.5 shadow-inner">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#18181b]"></span>
+      </div>
+      <div class="flex items-center gap-1.5 text-xs">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.25c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l.74-.74C8.04 19.9 9.94 20.5 12 20.5s3.96-.6 5.5-1.58l.74.74c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-.62-.64C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 2.5c3.59 0 6.5 2.91 6.5 6.5 0 1.54-.53 2.95-1.42 4.07l-9.15-9.15C9.05 6.03 10.46 5.5 12 5.5zm-5.08 2.43 9.15 9.15c-1.12.89-2.53 1.42-4.07 1.42-3.59 0-6.5-2.91-6.5-6.5 0-1.54.53-2.95 1.42-4.07z"/></svg>
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.3c3.78 0 7.26 1.4 9.9 3.73L12 18.3 2.1 11.03C4.74 8.7 8.22 7.3 12 7.3z"/></svg>
+        <div class="w-5 h-2.5 border border-slate-700 rounded-sm p-0.5 flex items-center">
+          <div class="h-full w-full bg-slate-800 rounded-2xs"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark Green Top Header Bar -->
+    <header class="bg-forest text-white px-5 py-3.5 flex items-center justify-between shadow-md relative z-20">
+      <!-- Back Button -->
+      <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 flex items-center justify-center transition-all" aria-label="الرجوع">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <!-- In RTL, forward arrow points left for back action -->
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Center Title -->
+      <div class="text-center">
+        <h1 class="text-lg font-bold tracking-tight text-white">نتيجة التشخيص</h1>
+        <span class="text-[11px] text-mint-200/90 font-medium flex items-center justify-center gap-1">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          اكتمل الفحص بواسطة الذكاء الاصطناعي
+        </span>
+      </div>
+
+      <!-- Action: Share or More -->
+      <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 flex items-center justify-center transition-all" aria-label="خيارات">
+        <svg class="w-4.5 h-4.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto px-4 py-4 space-y-3.5 pb-24">
+      
+      <!-- Primary Pale-Mint Result Card -->
+      <section class="bg-mint-100/90 border border-mint-200/80 rounded-[28px] p-4 shadow-sm relative overflow-hidden">
+        <!-- Subtle leaf watermark background accent -->
+        <div class="absolute -left-6 -bottom-6 w-32 h-32 opacity-10 pointer-events-none text-forest">
+          <svg viewBox="0 0 100 100" fill="currentColor">
+            <path d="M50 0C50 0 20 25 20 55C20 75 35 90 50 100C65 90 80 75 80 55C80 25 50 0 50 0ZM50 85C40 75 30 65 30 55C30 35 48 18 50 14C52 18 70 35 70 55C70 65 60 75 50 85Z"/>
+          </svg>
+        </div>
+
+        <!-- Upper Info: Image + Crop & Disease details -->
+        <div class="flex items-center gap-3.5 relative z-10">
+          
+          <!-- Crop Photo Thumbnail (Macro wheat rust image https://lh3.googleusercontent.com/aida/AEtjO1UT4I_YvhY_YVI3GCStLvYGZTLm-kUfs66k53sBqWwAUhtlWQIIgnrUv3x0Fg1UCM1b1GKQfPU4K4YYhc237_p-GpYKRo49UdL0rogLmgrVRjGhb8w1QLX7JgEXanQkkPamutj4RdN-a7F0lj0rDwiZg3Ex8UEeqgyeMVygZjWvi8QB9w6FutR0bfKoz1CBsr1tOxp16zwchhkX0VYvzb5SDxwh_x5wzp_3JfzTj6DEYMGviStbSAvJUw) -->
+          <div class="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-md group">
+            <img 
+              src="https://lh3.googleusercontent.com/aida/AEtjO1UT4I_YvhY_YVI3GCStLvYGZTLm-kUfs66k53sBqWwAUhtlWQIIgnrUv3x0Fg1UCM1b1GKQfPU4K4YYhc237_p-GpYKRo49UdL0rogLmgrVRjGhb8w1QLX7JgEXanQkkPamutj4RdN-a7F0lj0rDwiZg3Ex8UEeqgyeMVygZjWvi8QB9w6FutR0bfKoz1CBsr1tOxp16zwchhkX0VYvzb5SDxwh_x5wzp_3JfzTj6DEYMGviStbSAvJUw" 
+              alt="ورقة القمح المصابة" 
+              class="w-full h-full object-cover"
+            />
+            <!-- Badge on Photo -->
+            <span class="absolute bottom-1 right-1 bg-black/60 backdrop-blur-sm text-[9px] text-white px-1.5 py-0.5 rounded font-en font-medium">
+              4K AI CAM
+            </span>
+          </div>
+
+          <!-- Crop and Predicted Disease Meta -->
+          <div class="flex-1 min-w-0">
+            <!-- Crop Name Pill with Wheat Icon -->
+            <div class="inline-flex items-center gap-1.5 bg-white/90 border border-mint-200 px-2.5 py-1 rounded-full text-xs font-semibold text-forest shadow-2xs mb-1.5">
+              <!-- Wheat Sheaf SVG Icon -->
+              <svg class="w-3.5 h-3.5 text-agri shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C12 2 11 5 11 8C11 11 12 14 12 14C12 14 13 11 13 8C13 5 12 2 12 2M10.2 9.2C9.4 8.6 8 8 7 8C6.5 8 5.8 8.6 6.2 9.3C6.8 10.3 8.3 11.2 9.4 11.5C9.9 10.7 10.1 9.9 10.2 9.2M13.8 9.2C13.9 9.9 14.1 10.7 14.6 11.5C15.7 11.2 17.2 10.3 17.8 9.3C18.2 8.6 17.5 8 17 8C16 8 14.6 8.6 13.8 9.2M9.4 13.2C8.6 12.6 7.2 12 6.2 12C5.7 12 5 12.6 5.4 13.3C6 14.3 7.5 15.2 8.6 15.5C9.1 14.7 9.3 13.9 9.4 13.2M14.6 13.2C14.7 13.9 14.9 14.7 15.4 15.5C16.5 15.2 18 14.3 18.6 13.3C19 12.6 18.3 12 17.8 12C16.8 12 15.4 12.6 14.6 13.2M11 15C11 17 11.5 19 11.5 22H12.5C12.5 19 13 17 13 15C13 14 11 14 11 15Z"/>
+              </svg>
+              <span>القمح</span>
+              <span class="text-[10px] text-slate-400 font-en font-normal">| Wheat</span>
+            </div>
+
+            <!-- Predicted Disease Heading -->
+            <h2 class="text-base font-extrabold text-forest leading-tight tracking-tight">
+              صدأ الأوراق الأصفر
+            </h2>
+            <p class="text-xs font-en font-semibold text-agri">
+              Yellow Rust (Stripe Rust)
+            </p>
+
+            <!-- Biological Alert Tag -->
+            <div class="mt-1 flex items-center gap-1 text-[11px] text-amber-700 font-medium">
+              <svg class="w-3 h-3 text-amber-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+              <span>إصابة فطرية نشطة (Puccinia striiformis)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Distinct Prominent Confidence Panel -->
+        <div class="mt-3.5 pt-3 border-t border-mint-200/90 flex items-center justify-between bg-white/70 backdrop-blur-xs rounded-2xl p-3 shadow-2xs">
+          <div>
+            <span class="block text-[11px] font-medium text-slate-500">
+              درجة الثقة (تقديرية)
+            </span>
+            <span class="text-[11px] text-forest font-semibold flex items-center gap-1 mt-0.5">
+              <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              تطابق مرتفع جداً
+            </span>
+          </div>
+
+          <!-- Prominent 78% Indicator Badge -->
+          <div class="flex items-center gap-2">
+            <!-- Circular Progress Ring Graphic -->
+            <div class="relative w-11 h-11 flex items-center justify-center">
+              <svg class="w-11 h-11 -rotate-90 transform" viewBox="0 0 36 36">
+                <!-- Background track -->
+                <path class="text-mint-200" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <!-- 78% filled path -->
+                <path class="text-forest" stroke-dasharray="78, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-xs font-en font-bold text-forest">78%</span>
+              </div>
+            </div>
+
+            <!-- Big Stat Typography -->
+            <div class="text-left rtl:text-right pr-1">
+              <span class="text-2xl font-black font-en text-forest tracking-tight leading-none block">
+                78<span class="text-base text-agri font-bold">%</span>
+              </span>
+              <span class="text-[10px] text-emerald-800 font-bold bg-mint-200 px-1.5 py-0.2 rounded-md">
+                دقيق
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Card: Other Probabilities ("الاحتمالات الأخرى") -->
+      <section class="bg-white rounded-[26px] p-4 shadow-sm border border-slate-100">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-4 bg-agri rounded-full"></span>
+            <h3 class="text-sm font-bold text-slate-800">الاحتمالات الأخرى</h3>
+          </div>
+          <span class="text-[11px] text-slate-400 font-medium">3 تشخيصات بديلة</span>
+        </div>
+
+        <!-- 3 Alternative Predictions List -->
+        <div class="space-y-3">
+          
+          <!-- 1: Brown Rust — 12% -->
+          <div class="bg-slate-50/70 hover:bg-slate-50 transition-colors p-2.5 rounded-2xl border border-slate-100/80">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <div class="flex items-center gap-2">
+                <!-- Small green indicator dot -->
+                <span class="w-2.5 h-2.5 rounded-full bg-agri/80 shrink-0"></span>
+                <span class="font-bold text-slate-700">صدأ الأوراق البني</span>
+                <span class="font-en text-[11px] text-slate-400">Brown Rust</span>
+              </div>
+              <span class="font-en font-bold text-slate-700 text-xs">12%</span>
+            </div>
+            <!-- Horizontal confidence bar -->
+            <div class="w-full bg-slate-200/80 rounded-full h-2 overflow-hidden">
+              <div class="bg-agri h-full rounded-full transition-all duration-700" style="width: 12%"></div>
+            </div>
+          </div>
+
+          <!-- 2: Septoria — 6% -->
+          <div class="bg-slate-50/70 hover:bg-slate-50 transition-colors p-2.5 rounded-2xl border border-slate-100/80">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <div class="flex items-center gap-2">
+                <!-- Small green indicator dot -->
+                <span class="w-2.5 h-2.5 rounded-full bg-mint-300 shrink-0"></span>
+                <span class="font-bold text-slate-700">تبقع أوراق السبتوريا</span>
+                <span class="font-en text-[11px] text-slate-400">Septoria</span>
+              </div>
+              <span class="font-en font-bold text-slate-700 text-xs">6%</span>
+            </div>
+            <!-- Horizontal confidence bar -->
+            <div class="w-full bg-slate-200/80 rounded-full h-2 overflow-hidden">
+              <div class="bg-mint-300 h-full rounded-full transition-all duration-700" style="width: 6%"></div>
+            </div>
+          </div>
+
+          <!-- 3: Healthy — 4% -->
+          <div class="bg-slate-50/70 hover:bg-slate-50 transition-colors p-2.5 rounded-2xl border border-slate-100/80">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <div class="flex items-center gap-2">
+                <!-- Small green indicator dot -->
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span class="font-bold text-slate-700">سليم (خالي من المرض)</span>
+                <span class="font-en text-[11px] text-slate-400">Healthy</span>
+              </div>
+              <span class="font-en font-bold text-slate-700 text-xs">4%</span>
+            </div>
+            <!-- Horizontal confidence bar -->
+            <div class="w-full bg-slate-200/80 rounded-full h-2 overflow-hidden">
+              <div class="bg-emerald-400 h-full rounded-full transition-all duration-700" style="width: 4%"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Informational Disclaimer Note -->
+      <div class="flex items-start gap-2.5 bg-mint-50 border border-mint-200/60 rounded-2xl p-3 text-[11px] text-slate-600 leading-relaxed">
+        <svg class="w-4 h-4 text-forest shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <p>
+          <strong class="font-bold text-forest">تنويه إرشادي:</strong> النتائج المعروضة هي تقديرات قائمة على خوارزميات الذكاء الاصطناعي، ويُرجى التحقق الميداني واستشارة خبير زراعي عند الضرورة قبل تطبيق المعالجة.
+        </p>
+      </div>
+
+    </main>
+
+    <!-- Bottom Sticky CTA Container -->
+    <div class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-100 px-5 pt-3 pb-6 flex flex-col items-center gap-2.5 z-30 shadow-lg">
+      
+      <!-- Wide Dark Green Button: "عرض معلومات المرض" with Info Icon -->
+      <button class="w-full bg-forest hover:bg-forest-light active:scale-[0.98] text-white py-3.5 px-5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2.5 shadow-md shadow-forest/20 transition-all">
+        <!-- Information Icon -->
+        <svg class="w-5 h-5 text-mint-200" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>عرض معلومات المرض</span>
+        <svg class="w-4 h-4 text-mint-200/70 mr-auto" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+      <!-- Secondary Quick Action: New Scan -->
+      <button class="text-xs font-bold text-agri hover:text-forest flex items-center gap-1.5 transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg>
+        <span>إجراء فحص نبات جديد</span>
+      </button>
+
+      <!-- iOS Home Bar Indicator -->
+      <div class="w-32 h-1 bg-slate-300 rounded-full mt-1"></div>
+    </div>
+
+  </div>
+</body>
+</html>
