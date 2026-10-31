@@ -1,0 +1,6 @@
+@AgriAI.Api_HostAddress = http://localhost:5053
+
+GET {{AgriAI.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
