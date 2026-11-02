@@ -42,15 +42,20 @@ ml/
 
 ## Phase 1: comparison on tomato
 
-Train all three with the same split, augmentation, and number of epochs, then compare:
+Same split (70/15/15, stratified, seed 42), augmentation and epochs (3 head + 8 fine-tune) for all models. Dataset: PlantVillage color, 10 tomato classes, 18,146 images after removing 14 exact duplicates. Test set: 2,722 images. Full code: [`notebooks/compare.ipynb`](notebooks/compare.ipynb), numbers: [`experiments/results/`](experiments/results/).
 
-| Metric | MobileNetV3 | EfficientNetB0 | ConvNeXt-Tiny |
-|--------|-------------|----------------|---------------|
-| Accuracy | | | |
-| Macro F1 | | | |
-| Real-field test set accuracy | | | |
-| ONNX size (MB) | | | |
-| Inference time (ms) | | | |
+| Metric | MobileNetV3-Large | EfficientNet-B0 | ResNet50 |
+|--------|-------------------|-----------------|----------|
+| Accuracy | 0.9934 | 0.9934 | 0.9956 |
+| Macro F1 | 0.9916 | 0.9928 | 0.9954 |
+| Real-field test set accuracy | pending | pending | pending |
+| ONNX size (MB) | ~17 | ~16 | ~94 |
+| CPU inference time (ms, batch 1) | 18.5 | 33.8 | 129.4 |
+
+Notes:
+- ConvNeXt-Tiny was replaced by ResNet50 as the heavier baseline. Add ConvNeXt-Tiny later if needed.
+- PlantVillage images are lab photos on plain backgrounds and the split is random, so these numbers are optimistic. The real-field test set is the number that matters.
+- Size column is the PyTorch checkpoint size from the notebook; the ResNet50 ONNX is 94.0 MB (above the 50 MB limit, so it goes to GitHub Releases if needed).
 
 ## Phase 2: choose one
 

@@ -1,0 +1,31 @@
+{
+  "model": "efficientnet_b0",
+  "crop": "tomato",
+  "dataset": "PlantVillage (color)",
+  "num_classes": 10,
+  "input": {
+    "size": [
+      224,
+      224
+    ],
+    "channels": "RGB",
+    "layout": "NCHW",
+    "scale": "0-1 (divide by 255)",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "resize": "direct resize to 224x224 (no crop)"
+  },
+  "test_accuracy": 0.9933872152828802,
+  "test_macro_precision": 0.9905881960036551,
+  "test_macro_recall": 0.9949857295922158,
+  "test_macro_f1": 0.9927619132098433,
+  "latency_cpu_ms": 33.781210940001074
+}

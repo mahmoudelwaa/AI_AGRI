@@ -1,0 +1,31 @@
+{
+  "model": "mobilenet_v3_large",
+  "crop": "tomato",
+  "dataset": "PlantVillage (color)",
+  "num_classes": 10,
+  "input": {
+    "size": [
+      224,
+      224
+    ],
+    "channels": "RGB",
+    "layout": "NCHW",
+    "scale": "0-1 (divide by 255)",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "resize": "direct resize to 224x224 (no crop)"
+  },
+  "test_accuracy": 0.9933872152828802,
+  "test_macro_precision": 0.9894495344449137,
+  "test_macro_recall": 0.9939321379991066,
+  "test_macro_f1": 0.9916275924191951,
+  "latency_cpu_ms": 18.53087262000372
+}

@@ -1,0 +1,11 @@
+class,efficientnet_b0,mobilenet_v3_large,resnet50
+Bacterial_spot,0.9891,0.9891,0.9906
+Early_blight,0.9868,0.9832,0.99
+Late_blight,0.9947,0.993,0.9947
+Leaf_Mold,0.9965,0.9896,1.0
+Septoria_leaf_spot,0.9962,0.9981,0.9981
+Spider_mites Two-spotted_spider_mite,0.992,0.9921,0.994
+Target_Spot,0.9882,0.9953,0.9906
+Tomato_Yellow_Leaf_Curl_Virus,0.995,0.9956,0.9981
+Tomato_mosaic_virus,0.9912,0.9825,1.0
+healthy,0.9979,0.9979,0.9979
