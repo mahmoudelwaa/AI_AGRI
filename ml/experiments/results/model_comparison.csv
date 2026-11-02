@@ -1,0 +1,4 @@
+model,accuracy,precision_macro,recall_macro,f1_macro,latency_cpu_ms,latency_gpu_ms,params_m,size_mb,train_minutes
+resnet50,0.9956,0.9947,0.9961,0.9954,129.3842,6.2549,23.5285,94.434,22.0765
+efficientnet_b0,0.9934,0.9906,0.995,0.9928,33.7812,7.8923,4.0204,16.3846,7.9837
+mobilenet_v3_large,0.9934,0.9894,0.9939,0.9916,18.5309,5.9511,4.2148,17.0699,7.017
