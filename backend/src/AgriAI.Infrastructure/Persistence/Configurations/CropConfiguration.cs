@@ -12,7 +12,7 @@ public class CropConfiguration : IEntityTypeConfiguration<Crop>
 
         builder.HasKey(c => c.Id);
         builder.Property(c => c.Id)
-    .ValueGeneratedNever();
+            .ValueGeneratedNever();
         builder.Property(c => c.NameAr)
             .IsRequired()
             .HasMaxLength(100);
@@ -20,5 +20,8 @@ public class CropConfiguration : IEntityTypeConfiguration<Crop>
         builder.Property(c => c.NameEn)
             .IsRequired()
             .HasMaxLength(100);
+
+        builder.Property(c => c.ImageUrl)
+            .HasMaxLength(500);
     }
 }

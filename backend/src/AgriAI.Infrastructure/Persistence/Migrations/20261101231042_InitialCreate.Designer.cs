@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgriAI.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261031162548_InitialCreate")]
+    [Migration("20261101231042_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -69,6 +69,9 @@ namespace AgriAI.Infrastructure.Persistence.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Causes")
+                        .HasColumnType("text");
+
                     b.Property<int>("CropId")
                         .HasColumnType("integer");
 
@@ -84,6 +87,15 @@ namespace AgriAI.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
+
+                    b.Property<string>("Prevention")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Symptoms")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Treatment")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
